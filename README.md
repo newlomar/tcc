@@ -1,9 +1,8 @@
 # TCC
 
-##
+## O problema
 
-- O problema
-  - Como garantir que pessoas em situação de emergência consigam disparar mensagens de SOS a ponto de exigir pouca interação para esse número de mensagens, mas que por outro lado consiga alcançar um grande número de pessoas.
+Como garantir que pessoas em situação de emergência consigam disparar mensagens de SOS a ponto de exigir pouca interação para esse número de mensagens, mas que por outro lado consiga alcançar um grande número de pessoas.
 
 
 - A Hipótese:
