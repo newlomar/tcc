@@ -5,8 +5,9 @@
 Como garantir que pessoas em situação de emergência consigam disparar mensagens de SOS a ponto de exigir pouca interação para esse número de mensagens, mas que por outro lado consiga alcançar um grande número de pessoas.
 
 
-- A Hipótese:
-  - Se tivermos um aplicativo ativado por rede de dados, wi-fi e bluetooth seria possível emitir um alerta a partir do click de um dispositivo simples, com apenas um botão, para esse aplicativo que, em seguida, dispararia a mensagem de SOS para um pool de contatos previamente cadastrado
+## A Hipótese
+
+Se tivermos um aplicativo ativado por rede de dados, wi-fi e bluetooth seria possível emitir um alerta a partir do click de um dispositivo simples, com apenas um botão, para esse aplicativo que, em seguida, dispararia a mensagem de SOS para um pool de contatos previamente cadastrado
 
 
 - Comentários gerais
