@@ -24,3 +24,8 @@ Verificar uma forma de o dispositivo que se conecta via bluethooth conseguir lig
 Sinalizador de celular com bateria acabando (colocar como feature opcional)
   - Quando o celular estiver com a bateria acabando e prestes a desligar, o aplicativo manda uma mensagem para os "subscribers" (listerners, ouvintes, tanto faz)
 
+Adicionar possibilidade de criar comandos específicos, por exemplo:
+  - Um click, executa o comando padrão
+  - Dois clicks rápidos, executa um comando customizável, dentro dos comandos possíveis
+  - Três clicks rápidos, executa uma outra coisa
+  - etc...
