@@ -19,7 +19,9 @@ Arquitetura
     - Alarmes
   - SQS
   - SNS
-
+  - Testes automatizados
+    - TDD
+    - Cypress
 Adicionar tela tanto para a configuração de conexão com o dispositivo bluetooth, quanto para ser um subscriber da comunicação de um usuário
 
 Fazer o aplicativo ativar a localização caso esteja desativada no celular
