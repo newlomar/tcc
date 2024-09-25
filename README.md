@@ -12,6 +12,16 @@ Se tivermos um aplicativo ativado por rede de dados, wi-fi e bluetooth seria pos
 
 ## Comentários gerais
 
+Arquitetura
+  - Objetivo: a arquitetura precisa ser o mais confiável possível, para as mensagens inevitávelmenet serem entregues e, além disso, é fundalmental que ela seja rápida. Por esse motivo, ela precisa ser o mais confiável possível, funcionar indepentente de problemas externos e ter alternativas (fallback);
+    - Pensar em soluções caso alguma das camadas não esteja funcionando;
+    - Monitoramento
+    - Alarmes
+  - SQS
+  - SNS
+
+Adicionar tela tanto para a configuração de conexão com o dispositivo bluetooth, quanto para ser um subscriber da comunicação de um usuário
+
 Fazer o aplicativo ativar a localização caso esteja desativada no celular
 
 A API de bluetooth não é simpleszinha
