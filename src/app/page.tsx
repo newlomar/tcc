@@ -20,6 +20,7 @@ export default function BluetoothComponent() {
   const connectToDevice = async () => {
     try {
       const device = await navigator.bluetooth.requestDevice({
+        acceptDe,
         filters: [{ services: ["battery_service"] }],
       });
       setDevice(device);
@@ -37,7 +38,15 @@ export default function BluetoothComponent() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
       <h1>Bluetooth Device Connection</h1>
       {device ? (
         <p>Connected to: {device.name}</p>
@@ -48,7 +57,12 @@ export default function BluetoothComponent() {
       {isConnected ? (
         <p>Device is connected</p>
       ) : (
-        <button onClick={connectToDevice}>Connect to Bluetooth Device</button>
+        <button
+          style={{ background: "red", padding: "20px" }}
+          onClick={connectToDevice}
+        >
+          Connect to Bluetooth Device
+        </button>
       )}
     </div>
   );
