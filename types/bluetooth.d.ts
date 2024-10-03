@@ -15,7 +15,7 @@ interface Navigator {
 }
 
 interface RequestDeviceOptions {
-  acceptAllDevices: boolean;
+  acceptAllDevices?: boolean;
   filters?: Array<{
     services?: string[];
   }>;
