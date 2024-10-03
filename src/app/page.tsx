@@ -21,7 +21,6 @@ export default function BluetoothComponent() {
     try {
       const device = await navigator.bluetooth.requestDevice({
         acceptAllDevices: true,
-        filters: [{ services: ["battery_service"] }],
       });
       setDevice(device);
       console.log(`Device Name: ${device.name}`);
