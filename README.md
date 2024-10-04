@@ -42,6 +42,8 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 - Três clicks rápidos, executa uma outra coisa
 - etc...
 
+- Adicionar dispositivo a um chaveiro'
+
 ## Utilidades
 
 https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps
