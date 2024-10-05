@@ -41,6 +41,8 @@ export default function ConnectBluetoothComponent() {
     try {
       if (device && isConnected) {
         device.gatt?.disconnect();
+        setDevice(null);
+        setIsConnected(false);
       }
     } catch (err) {
       console.error("Error trying to diconnect to Bluetooth device: ", err);
