@@ -1,6 +1,23 @@
 "use client";
 import { useEffect, useState } from "react";
 
+export default function connectBluetoothComponent() {
+  const [device, setDevice] = useState<BluetoothDevice | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [isConnected, setIsConnected] = useState(false);
+
+  useEffect(() => {
+    // Ensure Web Bluetooth API is being used on browser and is supported by the browser
+    if (typeof window !== "undefined" && navigator.bluetooth) {
+      console.log("Web Bluetooth is supported");
+    } else {
+      console.error(
+        "Web Bluetooth is not supported in this browser or environment"
+      );
+    }
+  }, []);
+}
+
 // export default function BluetoothComponent() {
 //   const [device, setDevice] = useState<BluetoothDevice | null>(null);
 //   const [error, setError] = useState<string | null>(null);
