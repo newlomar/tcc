@@ -37,6 +37,17 @@ export default function ConnectBluetoothComponent() {
     }
   };
 
+  const disconnectToDevice = async () => {
+    try {
+      if (device && isConnected) {
+        device.gatt?.disconnect();
+      }
+    } catch (err) {
+      console.error("Error trying to diconnect to Bluetooth device: ", err);
+      setError((err as Error).message);
+    }
+  };
+
   return (
     <div
       style={{
@@ -63,6 +74,16 @@ export default function ConnectBluetoothComponent() {
         >
           Connect to Bluetooth Device
         </button>
+      )}
+      {isConnected ? (
+        <button
+          style={{ background: "blue", padding: "20px" }}
+          onClick={disconnectToDevice}
+        >
+          Disconnect from Bluetooth Device
+        </button>
+      ) : (
+        ""
       )}
     </div>
   );
