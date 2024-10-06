@@ -39,22 +39,23 @@ export default function ConnectBluetoothComponent() {
       console.log("Connected to GATT server");
       setIsConnected(true);
 
-      const service = await server.getPrimaryServices();
-      alert(service);
+      const service = await server.getPrimaryService(
+        "00001812-0000-1000-8000-00805f9b34fb"
+      );
 
-      // if (!service) {
-      //   throw new Error("Error getting service");
-      // }
+      if (!service) {
+        throw new Error("Error getting service");
+      }
 
-      // const characteristic = await service.getCharacteristic(
-      //   "00002a4d-0000-1000-8000-00805f9b34fb"
-      // );
+      const characteristic = await service.getCharacteristic(
+        "00002a4d-0000-1000-8000-00805f9b34fb"
+      );
 
-      // await characteristic.startNotifications();
-      // characteristic.addEventListener(
-      //   "characteristicvaluechanged",
-      //   handleButtonPress
-      // );
+      await characteristic.startNotifications();
+      characteristic.addEventListener(
+        "characteristicvaluechanged",
+        handleButtonPress
+      );
     } catch (err) {
       console.error("Error connecting to Bluetooth device: ", err);
       setError((err as Error).message);
@@ -74,16 +75,16 @@ export default function ConnectBluetoothComponent() {
     }
   };
 
-  // const handleButtonPress = (event: Event) => {
-  //   const target = event.target as BluetoothRemoteGATTCharacteristic;
-  //   const value = target.value;
+  const handleButtonPress = (event: Event) => {
+    const target = event.target as BluetoothRemoteGATTCharacteristic;
+    const value = target.value;
 
-  //   alert(`Botão pressionado: ${value}`);
+    alert(`Botão pressionado: ${value}`);
 
-  //   if (value?.getUint8(0)) {
-  //     alert("Button click detected!");
-  //   }
-  // };
+    if (value?.getUint8(0)) {
+      alert("Click de botão foi ouvido!");
+    }
+  };
 
   return (
     <div
