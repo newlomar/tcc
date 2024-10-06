@@ -55,8 +55,14 @@ export default function ConnectBluetoothComponent() {
       alert(JSON.stringify(service));
 
       const characteristic = await service.getCharacteristic(
-        "00002a4d-0000-1000-8000-00805f9b34fb"
+        "00002a19-0000-1000-8000-00805f9b34fb"
       );
+
+      const batteryLevelBinary = await characteristic.readValue();
+
+      const batteryLevelHumanReadable = batteryLevelBinary.getInt8(0);
+
+      alert(batteryLevelHumanReadable);
 
       await characteristic.startNotifications();
       characteristic.addEventListener(
