@@ -45,7 +45,7 @@ export default function ConnectBluetoothComponent() {
       });
 
       const service = await server.getPrimaryService(
-        "00001812-0000-1000-8000-00805f9b34fb"
+        "0000180f-0000-1000-8000-00805f9b34fb"
       );
 
       if (!service) {
