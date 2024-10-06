@@ -40,7 +40,9 @@ export default function ConnectBluetoothComponent() {
       setIsConnected(true);
 
       const services = await server.getPrimaryServices();
-      alert(JSON.stringify({ ...services }));
+      services.forEach((service) => {
+        alert(service.uuid);
+      });
 
       const service = await server.getPrimaryService(
         "00001812-0000-1000-8000-00805f9b34fb"
