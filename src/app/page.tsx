@@ -20,17 +20,35 @@ export default function ConnectBluetoothComponent() {
   const connectToDevice = async () => {
     try {
       const device = await navigator.bluetooth.requestDevice({
-        acceptAllDevices: true,
+        filters: [{ services: ["human_interface_device"] }],
       });
       setDevice(device);
       console.log(`Device Name: ${device.name}`);
 
       const server = await device.gatt?.connect();
 
-      if (server) {
-        console.log("Connected to GATT server");
-        setIsConnected(true);
+      if (!server) {
+        throw new Error("GATT server not found");
       }
+
+      console.log("Connected to GATT server");
+      setIsConnected(true);
+
+      const service = await server.getPrimaryService("human_interface_device");
+
+      if (!service) {
+        throw new Error("Error getting service");
+      }
+
+      const characteristic = await service.getCharacteristic(
+        "00002a4d-0000-1000-8000-00805f9b34fb"
+      );
+
+      await characteristic.startNotifications();
+      characteristic.addEventListener(
+        "characteristicvaluechanged",
+        handleButtonPress
+      );
     } catch (err) {
       console.error("Error connecting to Bluetooth device: ", err);
       setError((err as Error).message);
@@ -47,6 +65,17 @@ export default function ConnectBluetoothComponent() {
     } catch (err) {
       console.error("Error trying to diconnect to Bluetooth device: ", err);
       setError((err as Error).message);
+    }
+  };
+
+  const handleButtonPress = (event: Event) => {
+    const target = event.target as BluetoothRemoteGATTCharacteristic;
+    const value = target.value;
+
+    alert(`Botão pressionado: ${value}`);
+
+    if (value?.getUint8(0)) {
+      alert("Button click detected!");
     }
   };
 
