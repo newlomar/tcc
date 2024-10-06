@@ -20,7 +20,7 @@ export default function ConnectBluetoothComponent() {
   const connectToDevice = async () => {
     try {
       const device = await navigator.bluetooth.requestDevice({
-        filters: [{ services: ["human_interface_device"] }],
+        acceptAllDevices: true,
       });
       setDevice(device);
       console.log(`Device Name: ${device.name}`);
