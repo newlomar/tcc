@@ -35,21 +35,22 @@ export default function ConnectBluetoothComponent() {
       console.log("Connected to GATT server");
       setIsConnected(true);
 
-      const service = await server.getPrimaryService("human_interface_device");
+      const service = await server.getPrimaryServices();
+      alert(service);
 
-      if (!service) {
-        throw new Error("Error getting service");
-      }
+      // if (!service) {
+      //   throw new Error("Error getting service");
+      // }
 
-      const characteristic = await service.getCharacteristic(
-        "00002a4d-0000-1000-8000-00805f9b34fb"
-      );
+      // const characteristic = await service.getCharacteristic(
+      //   "00002a4d-0000-1000-8000-00805f9b34fb"
+      // );
 
-      await characteristic.startNotifications();
-      characteristic.addEventListener(
-        "characteristicvaluechanged",
-        handleButtonPress
-      );
+      // await characteristic.startNotifications();
+      // characteristic.addEventListener(
+      //   "characteristicvaluechanged",
+      //   handleButtonPress
+      // );
     } catch (err) {
       console.error("Error connecting to Bluetooth device: ", err);
       setError((err as Error).message);
