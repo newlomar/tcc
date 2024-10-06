@@ -39,6 +39,9 @@ export default function ConnectBluetoothComponent() {
       console.log("Connected to GATT server");
       setIsConnected(true);
 
+      const services = await server.getPrimaryServices();
+      alert(JSON.stringify(services));
+
       const service = await server.getPrimaryService(
         "00001812-0000-1000-8000-00805f9b34fb"
       );
