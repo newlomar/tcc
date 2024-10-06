@@ -70,16 +70,16 @@ export default function ConnectBluetoothComponent() {
     }
   };
 
-  const handleButtonPress = (event: Event) => {
-    const target = event.target as BluetoothRemoteGATTCharacteristic;
-    const value = target.value;
+  // const handleButtonPress = (event: Event) => {
+  //   const target = event.target as BluetoothRemoteGATTCharacteristic;
+  //   const value = target.value;
 
-    alert(`Botão pressionado: ${value}`);
+  //   alert(`Botão pressionado: ${value}`);
 
-    if (value?.getUint8(0)) {
-      alert("Button click detected!");
-    }
-  };
+  //   if (value?.getUint8(0)) {
+  //     alert("Button click detected!");
+  //   }
+  // };
 
   return (
     <div
