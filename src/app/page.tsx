@@ -40,7 +40,7 @@ export default function ConnectBluetoothComponent() {
       setIsConnected(true);
 
       const services = await server.getPrimaryServices();
-      alert(JSON.stringify(services));
+      alert(JSON.stringify({ ...services }));
 
       const service = await server.getPrimaryService(
         "00001812-0000-1000-8000-00805f9b34fb"
@@ -49,6 +49,8 @@ export default function ConnectBluetoothComponent() {
       if (!service) {
         throw new Error("Error getting service");
       }
+
+      alert(JSON.stringify(service));
 
       const characteristic = await service.getCharacteristic(
         "00002a4d-0000-1000-8000-00805f9b34fb"
