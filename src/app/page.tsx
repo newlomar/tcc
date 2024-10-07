@@ -22,13 +22,12 @@ export default function ConnectBluetoothComponent() {
       const device = await navigator.bluetooth.requestDevice({
         filters: [
           {
-            services: [
-              "0000180f-0000-1000-8000-00805f9b34fb", // Battery Service
-              "00001812-0000-1000-8000-00805f9b34fb", // HID Service
-              "0000180a-0000-1000-8000-00805f9b34fb", // Device Information
-            ],
+            namePrefix: "AB Shutter3",
           },
         ],
+        optionalServices: [
+          "00001812-0000-1000-8000-00805f9b34fb"
+        ]
       });
 
       setDevice(device);
@@ -49,7 +48,7 @@ export default function ConnectBluetoothComponent() {
       });
 
       const service = await server.getPrimaryService(
-        "0000180f-0000-1000-8000-00805f9b34fb"
+        "00001812-0000-1000-8000-00805f9b34fb"
       );
 
       if (!service) {
@@ -59,7 +58,7 @@ export default function ConnectBluetoothComponent() {
       alert(JSON.stringify(service));
 
       const characteristic = await service.getCharacteristic(
-        "00002a19-0000-1000-8000-00805f9b34fb"
+        "00002a4d-0000-1000-8000-00805f9b34fb"
       );
 
       const batteryLevelBinary = await characteristic.readValue();
