@@ -25,7 +25,7 @@ export default function ConnectBluetoothComponent() {
             namePrefix: "AB Shutter3",
           },
         ],
-        optionalServices: ["0000180f-0000-1000-8000-00805f9b34fb"],
+        optionalServices: ["00001812-0000-1000-8000-00805f9b34fb"],
       });
 
       setDevice(device);
@@ -46,7 +46,7 @@ export default function ConnectBluetoothComponent() {
       });
 
       const service = await server.getPrimaryService(
-        "0000180f-0000-1000-8000-00805f9b34fb"
+        "00001812-0000-1000-8000-00805f9b34fb"
       );
 
       if (!service) {
