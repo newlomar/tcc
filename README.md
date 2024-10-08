@@ -42,7 +42,7 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 - Três clicks rápidos, executa uma outra coisa
 - etc...
 
-- Adicionar dispositivo a um chaveiro'
+- Adicionar dispositivo a um chaveiro
 
 ## Utilidades
 
