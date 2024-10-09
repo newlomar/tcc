@@ -49,3 +49,5 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps
 
 https://developer.chrome.com/docs/capabilities/bluetooth
+
+LOOK FOR WEB HID Library:
