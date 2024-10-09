@@ -10,6 +10,12 @@ Se tivermos um aplicativo ativado por rede de dados, wi-fi e bluetooth seria pos
 
 ## Comentários gerais
 
+LOOK FOR WEB HID Library, as I cant interact with the HID Service from the AB Shutter 3 device by the web Bluetooth API:
+
+- https://wicg.github.io/webhid/
+
+- https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API
+
 Arquitetura
 
 - Objetivo: a arquitetura precisa ser o mais confiável possível, para as mensagens inevitávelmenet serem entregues e, além disso, é fundalmental que ela seja rápida. Por esse motivo, ela precisa ser o mais confiável possível, funcionar indepentente de problemas externos e ter alternativas (fallback);
@@ -49,8 +55,3 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps
 
 https://developer.chrome.com/docs/capabilities/bluetooth
-
-LOOK FOR WEB HID Library, as I cant interact with the HID Service from the AB Shutter 3 device by the web Bluetooth API: 
-- https://wicg.github.io/webhid/ 
-
-- https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API
