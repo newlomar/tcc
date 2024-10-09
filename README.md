@@ -50,4 +50,7 @@ https://nextjs.org/docs/app/building-your-application/configuring/progressive-we
 
 https://developer.chrome.com/docs/capabilities/bluetooth
 
-LOOK FOR WEB HID Library, as I cant interact with the HID Service from the AB Shutter 3 device by the web Bluetooth API.
+LOOK FOR WEB HID Library, as I cant interact with the HID Service from the AB Shutter 3 device by the web Bluetooth API: 
+- https://wicg.github.io/webhid/ 
+
+- https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API
