@@ -9,9 +9,9 @@ export default function ConnectBluetoothComponent() {
   useEffect(() => {
     // Ensure Web Bluetooth API is being used on browser and is supported by the browser
     if (typeof window !== "undefined" && navigator.hid) {
-      console.log("Web HID is supported");
+      alert("Web HID is supported");
     } else {
-      console.error("Web HID is not supported in this browser or environment");
+      alert("Web HID is not supported in this browser or environment");
     }
   }, []);
 
