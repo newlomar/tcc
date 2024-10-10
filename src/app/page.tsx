@@ -21,8 +21,6 @@ export default function ConnectBluetoothComponent() {
         filters: [],
       });
 
-      alert();
-
       if (!requestDevice[0]) {
         throw new Error("No Device 1");
       }
