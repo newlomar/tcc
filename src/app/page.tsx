@@ -2,33 +2,28 @@
 import { useEffect, useState } from "react";
 
 export default function ConnectBluetoothComponent() {
-  const [device, setDevice] = useState<BluetoothDevice | null>(null);
+  const [device, setDevice] = useState<HIDDevice | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
     // Ensure Web Bluetooth API is being used on browser and is supported by the browser
-    if (typeof window !== "undefined" && navigator.bluetooth) {
-      console.log("Web Bluetooth is supported");
+    if (typeof window !== "undefined" && navigator.hid) {
+      console.log("Web HID is supported");
     } else {
-      console.error(
-        "Web Bluetooth is not supported in this browser or environment"
-      );
+      console.error("Web HID is not supported in this browser or environment");
     }
   }, []);
 
   const connectToDevice = async () => {
     try {
-      const device = await navigator.bluetooth.requestDevice({
-        filters: [
-          {
-            namePrefix: "AB Shutter3",
-          },
-        ],
-        optionalServices: ["00001812-0000-1000-8000-00805f9b34fb"],
+      const device = await navigator.hid.requestDevice({
+        filters: [],
       });
 
-      setDevice(device);
+      alert();
+
+      setDevice(device[0]);
       console.log(`Device Name: ${device.name}`);
 
       const server = await device.gatt?.connect();
