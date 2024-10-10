@@ -77,11 +77,11 @@ export default function ConnectBluetoothComponent() {
         height: "100%",
       }}
     >
-      <h1>Bluetooth Device Connection</h1>
+      <h1>HID Device Connection</h1>
       {device ? (
         <p>Connected to: {device.productName}</p>
       ) : (
-        <p>No Bluetooth device connected.</p>
+        <p>No HID Device connected.</p>
       )}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {isConnected ? (
@@ -91,7 +91,7 @@ export default function ConnectBluetoothComponent() {
           style={{ background: "red", padding: "20px" }}
           onClick={connectToDevice}
         >
-          Connect to Bluetooth Device
+          Connect to HID Device
         </button>
       )}
       {isConnected ? (
@@ -99,7 +99,7 @@ export default function ConnectBluetoothComponent() {
           style={{ background: "blue", padding: "20px" }}
           onClick={disconnectToDevice}
         >
-          Disconnect from Bluetooth Device
+          Disconnect from HID Device
         </button>
       ) : (
         ""
