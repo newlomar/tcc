@@ -100,7 +100,7 @@ function useBLE() {
       if (error) {
         console.warn(error);
       }
-      console.warn(device);
+      // console.warn(device);
       if (
         device &&
         (device.localName === "AB Shutter3" || device.name === "AB Shutter3")
