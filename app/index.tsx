@@ -20,6 +20,7 @@ export default function Index() {
     startStreamingData,
   } = useBLE();
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  console.log("EXEMPLOOOO");
 
   const scanForDevices = async () => {
     const isPermissionsEnabled = await requestPermissions();
