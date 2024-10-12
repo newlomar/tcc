@@ -17,7 +17,6 @@ export default function Index() {
     message,
     requestPermissions,
     scanForPeripherals,
-    startStreamingData,
   } = useBLE();
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   console.warn("EXEMPLOOOO");
