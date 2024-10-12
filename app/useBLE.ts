@@ -88,7 +88,7 @@ function useBLE() {
       bleManager.stopDeviceScan();
       startStreamingData(deviceConnection);
     } catch (e) {
-      console.log("FAILED TO CONNECT", e);
+      console.warn("FAILED TO CONNECT", e);
     }
   };
 
@@ -98,9 +98,9 @@ function useBLE() {
   const scanForPeripherals = () =>
     bleManager.startDeviceScan(null, null, (error, device) => {
       if (error) {
-        console.log(error);
+        console.warn(error);
       }
-      console.log(device);
+      console.warn(device);
       if (
         device &&
         (device.localName === "AB Shutter3" || device.name === "AB Shutter3")
@@ -119,15 +119,15 @@ function useBLE() {
     characteristic: Characteristic | null
   ) => {
     if (error) {
-      console.log(error);
+      console.warn(error);
       return;
     } else if (!characteristic?.value) {
-      console.log("No Data was received");
+      console.warn("No Data was received");
       return;
     }
 
     const clickCode = base64.decode(characteristic.value);
-    console.log(clickCode);
+    console.warn(clickCode);
     setCounter(counter + 1);
     setMessage(`${clickCode} - counter: ${counter}`);
   };
@@ -140,7 +140,7 @@ function useBLE() {
         onDataUpdate
       );
     } else {
-      console.log("No Device Connected");
+      console.warn("No Device Connected");
     }
   };
 
