@@ -85,9 +85,11 @@ function useBLE() {
       const deviceConnection = await bleManager.connectToDevice(device.id);
       console.warn(deviceConnection);
       setConnectedDevice(deviceConnection);
-      await deviceConnection.discoverAllServicesAndCharacteristics();
       const services = await deviceConnection.services();
       console.warn(services);
+      const servicesAndCharacteristics =
+        await deviceConnection.discoverAllServicesAndCharacteristics();
+      console.log(servicesAndCharacteristics);
       bleManager.stopDeviceScan();
       console.warn(deviceConnection);
       startStreamingData(deviceConnection);
