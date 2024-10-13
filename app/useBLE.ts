@@ -106,7 +106,6 @@ function useBLE() {
         device &&
         (device.localName === "AB Shutter3" || device.name === "AB Shutter3")
       ) {
-        console.warn(device);
         setAllDevices((prevState: Device[]) => {
           if (!isDuplicteDevice(prevState, device)) {
             return [...prevState, device];
