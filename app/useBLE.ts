@@ -13,7 +13,7 @@ import {
 } from "react-native-ble-plx";
 
 const DATA_SERVICE_UUID = "00001812-0000-1000-8000-00805f9b34fb";
-const COLOR_CHARACTERISTIC_UUID = "00002a4d-0000-1000-8000-00805f9b34fb";
+const CHARACTERISTIC_UUID = "00002a4d-0000-1000-8000-00805f9b34fb";
 
 const bleManager = new BleManager();
 
@@ -137,7 +137,7 @@ function useBLE() {
     if (device) {
       device.monitorCharacteristicForService(
         DATA_SERVICE_UUID,
-        COLOR_CHARACTERISTIC_UUID,
+        CHARACTERISTIC_UUID,
         onDataUpdate
       );
     } else {
