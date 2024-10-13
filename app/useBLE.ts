@@ -90,6 +90,7 @@ function useBLE() {
         deviceConnection
       );
       console.warn(services);
+      console.warn(deviceConnection);
       startStreamingData(deviceConnection);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
