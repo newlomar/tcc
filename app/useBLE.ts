@@ -79,6 +79,36 @@ function useBLE() {
     }
   };
 
+  const onDataUpdate = (
+    error: BleError | null,
+    characteristic: Characteristic | null
+  ) => {
+    if (error) {
+      console.warn(characteristic);
+      console.warn(error);
+      return;
+    } else if (!characteristic?.value) {
+      console.warn("No Data was received");
+      return;
+    }
+
+    const clickCode = base64.decode(characteristic.value);
+    console.warn(clickCode);
+    setCounter(counter + 1);
+    setMessage(`${clickCode} - counter: ${counter}`);
+  };
+
+  const startStreamingData = async (device: Device) => {
+    if (device) {
+      device.monitorCharacteristicForService(
+        DATA_SERVICE_UUID,
+        CHARACTERISTIC_UUID,
+        onDataUpdate
+      );
+    } else {
+      console.warn("No Device Connected");
+    }
+  };
   const connectToDevice = async (device: Device) => {
     try {
       const deviceConnection = await bleManager.connectToDevice(device.id);
@@ -130,36 +160,6 @@ function useBLE() {
       }
     });
 
-  const onDataUpdate = (
-    error: BleError | null,
-    characteristic: Characteristic | null
-  ) => {
-    if (error) {
-      console.warn(characteristic);
-      console.warn(error);
-      return;
-    } else if (!characteristic?.value) {
-      console.warn("No Data was received");
-      return;
-    }
-
-    const clickCode = base64.decode(characteristic.value);
-    console.warn(clickCode);
-    setCounter(counter + 1);
-    setMessage(`${clickCode} - counter: ${counter}`);
-  };
-
-  const startStreamingData = async (device: Device) => {
-    if (device) {
-      device.monitorCharacteristicForService(
-        DATA_SERVICE_UUID,
-        CHARACTERISTIC_UUID,
-        onDataUpdate
-      );
-    } else {
-      console.warn("No Device Connected");
-    }
-  };
   const fetchServicesAndCharacteristicsForDevice = async (device: Device) => {
     var servicesMap = {} as Record<string, any>;
     var services = await device.services();
