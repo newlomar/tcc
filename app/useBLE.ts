@@ -22,7 +22,6 @@ function useBLE() {
   const [connectedDevice, setConnectedDevice] = useState<Device | null>(null);
   const [counter, setCounter] = useState<number>(0);
   const [message, setMessage] = useState("default message");
-  console.warn("example1");
 
   const requestAndroid31Permissions = async () => {
     const bluetoothScanPermission = await PermissionsAndroid.request(
