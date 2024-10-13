@@ -90,16 +90,18 @@ function useBLE() {
       //     device.id
       //   );
       //console.warn(deviceConnection2);
-
+      await deviceConnection.discoverAllServicesAndCharacteristics();
+      await deviceConnection.services();
       bleManager.stopDeviceScan();
+
+      await deviceConnection.services();
+      console.warn(deviceConnection);
+      startStreamingData(deviceConnection);
 
       // const services = await fetchServicesAndCharacteristicsForDevice(
       //   deviceConnection
       // );
       // console.warn(services);
-      await deviceConnection.services();
-      console.warn(deviceConnection);
-      startStreamingData(deviceConnection);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
     }
