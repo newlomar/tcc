@@ -126,9 +126,19 @@ function useBLE() {
       bleManager.stopDeviceScan();
 
       const services = await deviceConnection.services();
-      services.forEach((service) => {
-        console.warn(service);
+      const serviceHID = services.find((service) => {
+        return service.uuid === "00001812-0000-1000-8000-00805f9b34fb";
       });
+
+      if (!serviceHID) {
+        console.warn(
+          `No service with UUID "00001812-0000-1000-8000-00805f9b34fb" was found`
+        );
+        return;
+      }
+
+      const characteristics = await serviceHID.characteristics();
+
       console.warn(deviceConnection);
       startStreamingData(deviceConnection);
 
