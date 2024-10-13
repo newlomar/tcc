@@ -84,6 +84,8 @@ function useBLE() {
     characteristic: Characteristic | null
   ) => {
     if (error) {
+      console.warn(DATA_SERVICE_UUID);
+      console.warn(CHARACTERISTIC_UUID);
       console.warn(characteristic);
       console.warn(error);
       return;
@@ -101,7 +103,8 @@ function useBLE() {
   const startStreamingData = async (device: Device) => {
     if (device) {
       await new Promise((resolve) => setTimeout(resolve, 10000));
-
+      console.warn(DATA_SERVICE_UUID);
+      console.warn(CHARACTERISTIC_UUID);
       device.monitorCharacteristicForService(
         DATA_SERVICE_UUID,
         CHARACTERISTIC_UUID,
