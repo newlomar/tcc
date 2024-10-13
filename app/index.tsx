@@ -19,7 +19,6 @@ export default function Index() {
     scanForPeripherals,
   } = useBLE();
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-  console.warn("EXEMPLOOOO");
 
   const scanForDevices = async () => {
     const isPermissionsEnabled = await requestPermissions();
