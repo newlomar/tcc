@@ -94,7 +94,10 @@ function useBLE() {
       await deviceConnection.services();
       bleManager.stopDeviceScan();
 
-      await deviceConnection.services();
+      const services = await deviceConnection.services();
+      services.forEach((service) => {
+        console.warn(service);
+      });
       console.warn(deviceConnection);
       startStreamingData(deviceConnection);
 
@@ -133,6 +136,7 @@ function useBLE() {
     characteristic: Characteristic | null
   ) => {
     if (error) {
+      console.warn(characteristic);
       console.warn(error);
       return;
     } else if (!characteristic?.value) {
