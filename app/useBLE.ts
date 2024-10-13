@@ -83,15 +83,13 @@ function useBLE() {
     try {
       console.warn(device.id);
       const deviceConnection = await bleManager.connectToDevice(device.id);
-      console.warn(deviceConnection);
       setConnectedDevice(deviceConnection);
-      const services = await deviceConnection.services();
-      console.warn(services);
-      const servicesAndCharacteristics =
-        await deviceConnection.discoverAllServicesAndCharacteristics();
-      console.log(servicesAndCharacteristics);
+      await deviceConnection.discoverAllServicesAndCharacteristics();
       bleManager.stopDeviceScan();
-      console.warn(deviceConnection);
+      const services = await fetchServicesAndCharacteristicsForDevice(
+        deviceConnection
+      );
+      console.warn(services);
       startStreamingData(deviceConnection);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
@@ -147,6 +145,35 @@ function useBLE() {
     } else {
       console.warn("No Device Connected");
     }
+  };
+  const fetchServicesAndCharacteristicsForDevice = async (device: Device) => {
+    var servicesMap = {} as Record<string, any>;
+    var services = await device.services();
+
+    for (let service of services) {
+      var characteristicsMap = {} as Record<string, any>;
+      var characteristics = await service.characteristics();
+
+      for (let characteristic of characteristics) {
+        characteristicsMap[characteristic.uuid] = {
+          uuid: characteristic.uuid,
+          isReadable: characteristic.isReadable,
+          isWritableWithResponse: characteristic.isWritableWithResponse,
+          isWritableWithoutResponse: characteristic.isWritableWithoutResponse,
+          isNotifiable: characteristic.isNotifiable,
+          isNotifying: characteristic.isNotifying,
+          value: characteristic.value,
+        };
+      }
+
+      servicesMap[service.uuid] = {
+        uuid: service.uuid,
+        isPrimary: service.isPrimary,
+        characteristicsCount: characteristics.length,
+        characteristics: characteristicsMap,
+      };
+    }
+    return servicesMap;
   };
 
   return {
