@@ -113,6 +113,7 @@ function useBLE() {
           }
           return prevState;
         });
+        console.warn(allDevices);
       }
     });
 
