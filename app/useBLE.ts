@@ -142,25 +142,6 @@ function useBLE() {
 
       const characteristics = await serviceHID.characteristics();
 
-      characteristics.forEach((characteristic) => {
-        console.warn(`Characteristic UUID: ${characteristic.uuid}`);
-        console.warn(
-          `Characteristic properties: ${JSON.stringify(
-            characteristic.isReadable
-          )} - Readable`
-        );
-        console.warn(
-          `Characteristic properties: ${JSON.stringify(
-            characteristic.isWritableWithResponse
-          )} - Writable`
-        );
-        console.warn(
-          `Characteristic properties: ${JSON.stringify(
-            characteristic.isNotifiable
-          )} - Notifiable`
-        );
-      });
-
       console.warn(deviceConnection);
       startStreamingData(deviceConnection);
 
