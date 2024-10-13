@@ -47,7 +47,7 @@ export default function Index() {
           </>
         ) : (
           <Text style={styles.heartRateTitleText}>
-            Please connect the Arduino
+            Please connect the Bluetooth Device
           </Text>
         )}
       </View>
