@@ -82,12 +82,12 @@ function useBLE() {
   const connectToDevice = async (device: Device) => {
     try {
       const deviceConnection = await bleManager.connectToDevice(device.id);
+      console.warn(deviceConnection);
       setConnectedDevice(deviceConnection);
       const servicesAndCharacteristics =
         await deviceConnection.discoverAllServicesAndCharacteristics();
       console.warn(servicesAndCharacteristics);
       bleManager.stopDeviceScan();
-      console.warn(connectedDevice);
       startStreamingData(deviceConnection);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
