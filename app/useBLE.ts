@@ -145,7 +145,7 @@ function useBLE() {
         console.warn("No characteristic with this uuid!");
         return;
       }
-
+      console.warn(hidCharacteristic);
       startStreamingData(hidCharacteristic);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
