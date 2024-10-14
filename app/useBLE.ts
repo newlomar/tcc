@@ -110,9 +110,9 @@ function useBLE() {
 
   const connectToDevice = async (device: Device) => {
     try {
-      // const deviceConnection = await bleManager.connectToDevice(device.id);
-      const deviceConnected = await device.connect();
-      setConnectedDevice(deviceConnected);
+      const deviceConnection = await bleManager.connectToDevice(device.id);
+
+      setConnectedDevice(deviceConnection);
 
       if (!connectedDevice) {
         return;
