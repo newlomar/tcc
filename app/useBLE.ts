@@ -12,11 +12,11 @@ import {
   Device,
 } from "react-native-ble-plx";
 
-// const DATA_SERVICE_UUID = "00001812-0000-1000-8000-00805f9b34fb";
-// const CHARACTERISTIC_UUID = "00002a4d-0000-1000-8000-00805f9b34fb";
+const DATA_SERVICE_UUID = "00001812-0000-1000-8000-00805f9b34fb";
+const CHARACTERISTIC_UUID = "00002a4d-0000-1000-8000-00805f9b34fb";
 
-const DATA_SERVICE_UUID = "0000180f-0000-1000-8000-00805f9b34fb";
-const CHARACTERISTIC_UUID = "00002a19-0000-1000-8000-00805f9b34fb";
+// const DATA_SERVICE_UUID = "0000180f-0000-1000-8000-00805f9b34fb";
+// const CHARACTERISTIC_UUID = "00002a19-0000-1000-8000-00805f9b34fb";
 
 const bleManager = new BleManager();
 
@@ -100,13 +100,9 @@ function useBLE() {
     setMessage(`${clickCode} - counter: ${counter}`);
   };
 
-  const startStreamingData = async (device: Device) => {
-    if (device) {
-      device.monitorCharacteristicForService(
-        DATA_SERVICE_UUID,
-        CHARACTERISTIC_UUID,
-        onDataUpdate
-      );
+  const startStreamingData = async (characteristic: Characteristic) => {
+    if (characteristic) {
+      characteristic.monitor(onDataUpdate);
     } else {
       console.warn("No Device Connected");
     }
@@ -129,25 +125,28 @@ function useBLE() {
       bleManager.stopDeviceScan();
 
       const services = await connectedDevice.services();
-      const serviceHID = services.find((service) => {
+      const hidService = services.find((service) => {
         return service.uuid === "00001812-0000-1000-8000-00805f9b34fb";
       });
 
-      if (!serviceHID) {
+      if (!hidService) {
         console.warn(
           `No service with UUID "00001812-0000-1000-8000-00805f9b34fb" was found`
         );
         return;
       }
 
-      const characteristics = await serviceHID.characteristics();
+      const characteristics = await hidService.characteristics();
+      const hidCharacteristic = characteristics.find((characteristic) => {
+        return characteristic.uuid === "00002a4d-0000-1000-8000-00805f9b34fb";
+      });
 
-      if (!connectedDevice) {
-        console.warn("No device connected");
+      if (!hidCharacteristic) {
+        console.warn("No characteristic with this uuid!");
         return;
       }
 
-      startStreamingData(connectedDevice);
+      startStreamingData(hidCharacteristic);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
     }
