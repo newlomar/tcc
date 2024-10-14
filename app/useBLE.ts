@@ -93,7 +93,7 @@ function useBLE() {
       console.warn("No Data was received");
       return;
     }
-
+    console.warn("click");
     const clickCode = base64.decode(characteristic.value);
     console.warn(clickCode);
     setCounter(counter + 1);
