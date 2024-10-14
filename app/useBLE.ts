@@ -84,9 +84,6 @@ function useBLE() {
     characteristic: Characteristic | null
   ) => {
     if (error) {
-      console.warn(DATA_SERVICE_UUID);
-      console.warn(CHARACTERISTIC_UUID);
-      console.warn(characteristic);
       console.warn(error);
       return;
     } else if (!characteristic?.value) {
@@ -103,8 +100,6 @@ function useBLE() {
   const startStreamingData = async (device: Device) => {
     if (device) {
       await new Promise((resolve) => setTimeout(resolve, 10000));
-      console.warn(DATA_SERVICE_UUID);
-      console.warn(CHARACTERISTIC_UUID);
       device.monitorCharacteristicForService(
         DATA_SERVICE_UUID,
         CHARACTERISTIC_UUID,
@@ -119,11 +114,6 @@ function useBLE() {
       const deviceConnection = await bleManager.connectToDevice(device.id);
       setConnectedDevice(deviceConnection);
 
-      // const deviceConnection2 =
-      //   await bleManager.discoverAllServicesAndCharacteristicsForDevice(
-      //     device.id
-      //   );
-      //console.warn(deviceConnection2);
       await deviceConnection.discoverAllServicesAndCharacteristics();
       await deviceConnection.services();
       bleManager.stopDeviceScan();
@@ -144,11 +134,6 @@ function useBLE() {
 
       console.warn(deviceConnection);
       startStreamingData(deviceConnection);
-
-      // const services = await fetchServicesAndCharacteristicsForDevice(
-      //   deviceConnection
-      // );
-      // console.warn(services);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
     }
