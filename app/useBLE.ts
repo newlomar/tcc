@@ -112,14 +112,21 @@ function useBLE() {
 
   const connectToDevice = async (device: Device) => {
     try {
-      const deviceConnection = await bleManager.connectToDevice(device.id);
-      setConnectedDevice(deviceConnection);
+      // const deviceConnection = await bleManager.connectToDevice(device.id);
+      const deviceConnected = await device.connect();
+      setConnectedDevice(deviceConnected);
 
-      await deviceConnection.discoverAllServicesAndCharacteristics();
-      await deviceConnection.services();
+      if (!connectedDevice) {
+        return;
+      }
+
+      console.warn(connectedDevice);
+
+      await connectedDevice.discoverAllServicesAndCharacteristics();
+      await connectedDevice.services();
       bleManager.stopDeviceScan();
 
-      const services = await deviceConnection.services();
+      const services = await connectedDevice.services();
       const serviceHID = services.find((service) => {
         return service.uuid === "00001812-0000-1000-8000-00805f9b34fb";
       });
@@ -133,7 +140,12 @@ function useBLE() {
 
       const characteristics = await serviceHID.characteristics();
 
-      startStreamingData(deviceConnection);
+      if (!connectedDevice) {
+        console.warn("No device connected");
+        return;
+      }
+
+      startStreamingData(connectedDevice);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
     }
