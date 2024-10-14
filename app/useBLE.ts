@@ -109,6 +109,7 @@ function useBLE() {
       console.warn("No Device Connected");
     }
   };
+
   const connectToDevice = async (device: Device) => {
     try {
       const deviceConnection = await bleManager.connectToDevice(device.id);
