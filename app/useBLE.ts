@@ -133,7 +133,6 @@ function useBLE() {
 
       const characteristics = await serviceHID.characteristics();
 
-      console.warn(deviceConnection);
       startStreamingData(deviceConnection);
     } catch (e) {
       console.warn("FAILED TO CONNECT", e);
