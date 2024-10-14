@@ -99,7 +99,6 @@ function useBLE() {
 
   const startStreamingData = async (device: Device) => {
     if (device) {
-      await new Promise((resolve) => setTimeout(resolve, 10000));
       device.monitorCharacteristicForService(
         DATA_SERVICE_UUID,
         CHARACTERISTIC_UUID,
