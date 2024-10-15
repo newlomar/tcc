@@ -87,7 +87,8 @@ function useBLE() {
     characteristic: Characteristic | null
   ) => {
     if (error) {
-      console.warn(error);
+      console.warn(JSON.stringify(error));
+      alert(error.reason);
       return;
     } else if (!characteristic?.value) {
       console.warn("No Data was received");
