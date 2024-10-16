@@ -202,6 +202,7 @@ function useBLE() {
     requestPermissions,
     scanForPeripherals,
     startStreamingData,
+    abShutterListener,
   };
 }
 
