@@ -57,3 +57,9 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps
 
 https://developer.chrome.com/docs/capabilities/bluetooth
+
+Blueooth HID not Allowed for "non-system" apps:
+
+- https://stackoverflow.com/questions/76451356/getting-java-lang-securityexception-need-bluetooth-privileged-permission-when
+
+- https://stackoverflow.com/questions/77979707/flutter-android-need-bluetooth-privileged-permission
