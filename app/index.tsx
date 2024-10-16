@@ -39,7 +39,7 @@ export default function Index() {
   return (
     <SafeAreaView style={[styles.container]}>
       <View style={styles.heartRateTitleWrapper}>
-        {connectedDevice ? (
+        {/* {connectedDevice ? (
           <>
             <Text style={[styles.heartRateTitleText]}>
               Connected - {message}
@@ -49,7 +49,7 @@ export default function Index() {
           <Text style={styles.heartRateTitleText}>
             Please connect the Bluetooth Device
           </Text>
-        )}
+        )} */}
       </View>
       {/* <TouchableOpacity onPress={openModal} style={styles.ctaButton}>
         <Text style={styles.ctaButtonText}>Connect</Text>
