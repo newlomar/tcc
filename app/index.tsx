@@ -51,7 +51,7 @@ export default function Index() {
           </Text>
         )}
       </View>
-      <TouchableOpacity onPress={openModal} style={styles.ctaButton}>
+      {/* <TouchableOpacity onPress={openModal} style={styles.ctaButton}>
         <Text style={styles.ctaButtonText}>Connect</Text>
       </TouchableOpacity>
       <DeviceModal
@@ -59,7 +59,7 @@ export default function Index() {
         visible={isModalVisible}
         connectToPeripheral={connectToDevice}
         devices={allDevices}
-      />
+      /> */}
     </SafeAreaView>
   );
 }
