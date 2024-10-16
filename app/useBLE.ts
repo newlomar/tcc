@@ -1,6 +1,7 @@
 /* eslint-disable no-bitwise */
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { PermissionsAndroid, Platform } from "react-native";
+import { VolumeManager } from "react-native-volume-manager";
 
 import * as ExpoDevice from "expo-device";
 
@@ -173,6 +174,25 @@ function useBLE() {
         });
       }
     });
+
+  const ABShutterListener = () => {
+    useEffect(() => {
+      // Listen for volume button presses
+      const subscription = VolumeManager.addVolumeListener(({ volume }) => {
+        if (volume) {
+          console.log("AB Shutter Button Pressed!");
+          // You can trigger a photo capture or any other action here
+        }
+      });
+
+      return () => {
+        // Clean up the listener when the component is unmounted
+        subscription.remove();
+      };
+    }, []);
+
+    return null; // No UI for this listener component
+  };
 
   return {
     connectToDevice,
