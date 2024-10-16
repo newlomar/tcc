@@ -52,6 +52,10 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 
 - Adicionar dispositivo a um chaveiro
 
+- EM CASO DE Não HAVER INTERNET / Indisponibilidade no serviço que recebe a mensagem (SQS por exemplo)
+  - sucessão(sequência) de funções fallbacks para resolver o problema
+  - salvar as informações localização localmente no telefone para que, assim que o sinal for reestabelicido, a aplicação já consuma e envie a informação para os ouvintes, não dependendo de um novo click.
+
 ## Utilidades
 
 https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps
