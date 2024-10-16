@@ -175,7 +175,7 @@ function useBLE() {
       }
     });
 
-  const ABShutterListener = () => {
+  const abShutterListener = () => {
     useEffect(() => {
       // Listen for volume button presses
       const subscription = VolumeManager.addVolumeListener(({ volume }) => {
