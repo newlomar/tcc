@@ -180,7 +180,7 @@ function useBLE() {
       // Listen for volume button presses
       const subscription = VolumeManager.addVolumeListener(({ volume }) => {
         if (volume) {
-          console.log("AB Shutter Button Pressed!");
+          console.warn("AB Shutter Button Pressed!");
           // You can trigger a photo capture or any other action here
         }
       });
