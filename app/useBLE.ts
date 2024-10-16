@@ -175,7 +175,7 @@ function useBLE() {
       }
     });
 
-  const abShutterListener = () => {
+  const ABShutterListener = () => {
     useEffect(() => {
       // Listen for volume button presses
       const subscription = VolumeManager.addVolumeListener(({ volume }) => {
@@ -202,7 +202,7 @@ function useBLE() {
     requestPermissions,
     scanForPeripherals,
     startStreamingData,
-    abShutterListener,
+    ABShutterListener,
   };
 }
 

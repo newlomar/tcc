@@ -15,6 +15,7 @@ export default function Index() {
     connectedDevice,
     connectToDevice,
     message,
+    ABShutterListener,
     requestPermissions,
     scanForPeripherals,
   } = useBLE();
@@ -50,6 +51,7 @@ export default function Index() {
             Please connect the Bluetooth Device
           </Text>
         )} */}
+        <ABShutterListener />
       </View>
       {/* <TouchableOpacity onPress={openModal} style={styles.ctaButton}>
         <Text style={styles.ctaButtonText}>Connect</Text>
