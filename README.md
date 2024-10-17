@@ -10,6 +10,8 @@ Se tivermos um aplicativo ativado por rede de dados, wi-fi e bluetooth seria pos
 
 ## Comentários gerais
 
+- Contador de clicks de volume (alteração de volume) para dizer se está em perigo ou não
+
 LOOK FOR WEB HID Library, as I cant interact with the HID Service from the AB Shutter 3 device by the web Bluetooth API:
 
 - https://wicg.github.io/webhid/
@@ -53,10 +55,19 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 - Adicionar dispositivo a um chaveiro
 
 - EM CASO DE Não HAVER INTERNET / Indisponibilidade no serviço que recebe a mensagem (SQS por exemplo)
+
   - sucessão(sequência) de funções fallbacks para resolver o problema
   - salvar as informações localização localmente no telefone para que, assim que o sinal for reestabelicido, a aplicação já consuma e envie a informação para os ouvintes, não dependendo de um novo click.
 
+- Criar um dispositivo próprio
+
+  - Que funcione como chaveiro e a forma de informar que está em situação de SOS seja fácil de fazer com as mãos no bolso, porém, ao mesmo tempo, que não fique perceptível que é um dispositivo com essa funcionalidade e que garanta que, uma vez que alterado para SOS, que a mensagem seja distribuída.
+
+  - Além disso, o dispositivo tem que ter uma bateria de longa duração, ser fácil de se conectar via bluetooth, **usar um serviço e uma característica que seja permitidos, sem permissão a nível de sistema!!!!!!!!**
+
 ## Utilidades
+
+https://academy.nordicsemi.com/courses/bluetooth-low-energy-fundamentals/lessons/lesson-1-bluetooth-low-energy-introduction/
 
 https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps
 
