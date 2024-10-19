@@ -50,7 +50,7 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 - Um click, executa o comando padrão
 - Dois clicks rápidos, executa um comando customizável, dentro dos comandos possíveis
 - Três clicks rápidos, executa uma outra coisa
-- etc...
+- etc
 
 - Adicionar dispositivo a um chaveiro
 
