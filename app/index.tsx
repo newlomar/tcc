@@ -53,15 +53,6 @@ export default function Index() {
         )} */}
         <ABShutterListener />
       </View>
-      {/* <TouchableOpacity onPress={openModal} style={styles.ctaButton}>
-        <Text style={styles.ctaButtonText}>Connect</Text>
-      </TouchableOpacity>
-      <DeviceModal
-        closeModal={hideModal}
-        visible={isModalVisible}
-        connectToPeripheral={connectToDevice}
-        devices={allDevices}
-      /> */}
     </SafeAreaView>
   );
 }
