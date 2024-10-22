@@ -40,17 +40,6 @@ export default function Index() {
   return (
     <SafeAreaView style={[styles.container]}>
       <View style={styles.heartRateTitleWrapper}>
-        {/* {connectedDevice ? (
-          <>
-            <Text style={[styles.heartRateTitleText]}>
-              Connected - {message}
-            </Text>
-          </>
-        ) : (
-          <Text style={styles.heartRateTitleText}>
-            Please connect the Bluetooth Device
-          </Text>
-        )} */}
         <ABShutterListener />
       </View>
     </SafeAreaView>
