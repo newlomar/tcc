@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-// import DeviceModal from "./DeviceConnectionModal";
+
 import useBLE from "./useBLE";
 
 export default function Index() {
