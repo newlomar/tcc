@@ -20,6 +20,8 @@ LOOK FOR WEB HID Library, as I cant interact with the HID Service from the AB Sh
 
 - https://stackoverflow.com/questions/77750301/hid-over-bluetooth-le-in-javascript
 
+---
+
 Arquitetura
 
 - Objetivo: a arquitetura precisa ser o mais confiável possível, para as mensagens inevitávelmenet serem entregues e, além disso, é fundalmental que ela seja rápida. Por esse motivo, ela precisa ser o mais confiável possível, funcionar indepentente de problemas externos e ter alternativas (fallback);
@@ -31,6 +33,10 @@ Arquitetura
 - Testes automatizados - TDD - Cypress
   Adicionar tela tanto para a configuração de conexão com o dispositivo bluetooth, quanto para ser um subscriber da comunicação de um usuário
 
+---
+
+Ideias
+
 Fazer o aplicativo ativar a localização caso esteja desativada no celular
 
 A API de bluetooth não é simpleszinha
@@ -39,11 +45,11 @@ Possibilidade de IA
 
 Verificar uma forma de o dispositivo que se conecta via bluethooth conseguir ligar o bluetooth do celular ou algo do tipo
 
-- Verificar se deixar o bluetooth ligado gasta muita bateria do celuar
+Verificar se deixar o bluetooth ligado gasta muita bateria do celuar
 
 Sinalizador de celular com bateria acabando (colocar como feature opcional)
 
-- Quando o celular estiver com a bateria acabando e prestes a desligar, o aplicativo manda uma mensagem para os "subscribers" (listerners, ouvintes, tanto faz)
+Quando o celular estiver com a bateria acabando e prestes a desligar, o aplicativo manda uma mensagem para os "subscribers" (listerners, ouvintes, tanto faz)
 
 Adicionar possibilidade de criar comandos específicos, por exemplo:
 
@@ -54,16 +60,22 @@ Adicionar possibilidade de criar comandos específicos, por exemplo:
 
 - Adicionar dispositivo a um chaveiro
 
-- EM CASO DE Não HAVER INTERNET / Indisponibilidade no serviço que recebe a mensagem (SQS por exemplo)
+EM CASO DE Não HAVER INTERNET / Indisponibilidade no serviço que recebe a mensagem (SQS por exemplo)
 
-  - sucessão(sequência) de funções fallbacks para resolver o problema
-  - salvar as informações localização localmente no telefone para que, assim que o sinal for reestabelicido, a aplicação já consuma e envie a informação para os ouvintes, não dependendo de um novo click.
+- sucessão(sequência) de funções fallbacks para resolver o problema
+- salvar as informações localização localmente no telefone para que, assim que o sinal for reestabelicido, a aplicação já consuma e envie a informação para os ouvintes, não dependendo de um novo click.
 
-- Criar um dispositivo próprio
+Criar um dispositivo próprio
 
-  - Que funcione como chaveiro e a forma de informar que está em situação de SOS seja fácil de fazer com as mãos no bolso, porém, ao mesmo tempo, que não fique perceptível que é um dispositivo com essa funcionalidade e que garanta que, uma vez que alterado para SOS, que a mensagem seja distribuída.
+- Que funcione como chaveiro e a forma de informar que está em situação de SOS seja fácil de fazer com as mãos no bolso, porém, ao mesmo tempo, que não fique perceptível que é um dispositivo com essa funcionalidade e que garanta que, uma vez que alterado para SOS, que a mensagem seja distribuída.
 
-  - Além disso, o dispositivo tem que ter uma bateria de longa duração, ser fácil de se conectar via bluetooth, **usar um serviço e uma característica que seja permitidos, sem permissão a nível de sistema!!!!!!!!**
+- Além disso, o dispositivo tem que ter uma bateria de longa duração, ser fácil de se conectar via bluetooth, **usar um serviço e uma característica que seja permitidos, sem permissão a nível de sistema!!!!!!!!**
+
+Colocar uma informação na tela principal do aplicativo, indicando se ele está conectado com o dispositivo no momento ou não
+
+- Indicar qual dispositivo é: Dispositivo próprio ou o AB Shutter 3
+
+Criar fluxo para configuração de dispositivos (próprio ou AB Shutter 3)
 
 ## Utilidades
 
