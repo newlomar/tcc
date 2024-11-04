@@ -37,6 +37,8 @@ Arquitetura
 
 Ideias
 
+API vai ser feita em Elixir, por conta da tolerência a falhas
+
 Fazer o aplicativo ativar a localização caso esteja desativada no celular
 
 A API de bluetooth não é simpleszinha
