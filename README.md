@@ -30,7 +30,7 @@ Arquitetura
   - Alarmes
 - SQS
 - SNS
-- Testes automatizados - TDD - Cypress
+- Testes automatizados / TDD / Cypress
   Adicionar tela tanto para a configuração de conexão com o dispositivo bluetooth, quanto para ser um subscriber da comunicação de um usuário
 
 ---
