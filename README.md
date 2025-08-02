@@ -24,7 +24,7 @@ LOOK FOR WEB HID Library, as I cant interact with the HID Service from the AB Sh
 
 Arquitetura
 
-- Objetivo: a arquitetura precisa ser o mais confiável possível, para as mensagens inevitávelmenet serem entregues e, além disso, é fundalmental que ela seja rápida. Por esse motivo, ela precisa ser o mais confiável possível, funcionar indepentente de problemas externos e ter alternativas (fallback);
+- Objetivo: a arquitetura precisa ser o mais confiável possível, para as mensagens inevitávelmente serem entregues e, além disso, é fundalmental que ela seja rápida. Por esse motivo, ela precisa ser o mais confiável possível, funcionar indepentente de problemas externos e ter alternativas (fallback);
   - Pensar em soluções caso alguma das camadas não esteja funcionando;
   - Monitoramento
   - Alarmes
