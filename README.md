@@ -71,7 +71,7 @@ Criar um dispositivo próprio
 
 - Que funcione como chaveiro e a forma de informar que está em situação de SOS seja fácil de fazer com as mãos no bolso, porém, ao mesmo tempo, que não fique perceptível que é um dispositivo com essa funcionalidade e que garanta que, uma vez que alterado para SOS, que a mensagem seja distribuída.
 
-- Além disso, o dispositivo tem que ter uma bateria de longa duração, ser fácil de se conectar via bluetooth, **usar um serviço e uma característica que seja permitidos, sem permissão a nível de sistema!!!!!!!!**
+- Além disso, o dispositivo tem que ter uma bateria de longa duração, ser fácil de se conectar via bluetooth, **usar um serviço e uma característica que seja permitidos, sem permissão a nível de sistema!!!!!!!!** (ab shutter 3 HID problem)
 
 Colocar uma informação na tela principal do aplicativo, indicando se ele está conectado com o dispositivo no momento ou não
 
